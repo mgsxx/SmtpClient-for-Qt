@@ -20,8 +20,9 @@
 #define MIMEINLINEFILE_H
 
 #include "mimefile.h"
+#include "exportmode.h"
 
-class MimeInlineFile : public MimeFile
+class SMTPMIME_EXPORT MimeInlineFile : public MimeFile
 {
 public:
 

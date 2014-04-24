@@ -23,8 +23,9 @@
 #include "mimemultipart.h"
 #include "emailaddress.h"
 #include <QList>
+#include "exportmode.h"
 
-class MimeMessage : public QObject
+class SMTPMIME_EXPORT MimeMessage : public QObject
 {
 public:
 

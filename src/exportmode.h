@@ -1,0 +1,12 @@
+#ifndef SMTPCLIENT_EXPORTMODE_H
+#define SMTPCLIENT_EXPORTMODE_H
+
+#include <QtCore/QtGlobal>
+
+#if defined(SMTPMIME_DO_EXPORT)
+#  define SMTPMIME_EXPORT Q_DECL_EXPORT
+#else
+#  define SMTPMIME_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // SMTPCLIENT_EXPORTMODE_H

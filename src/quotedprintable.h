@@ -21,8 +21,9 @@
 
 #include <QObject>
 #include <QByteArray>
+#include "exportmode.h"
 
-class QuotedPrintable : public QObject
+class SMTPMIME_EXPORT QuotedPrintable : public QObject
 {
     Q_OBJECT
 public:

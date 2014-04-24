@@ -22,8 +22,9 @@
 #include <QFile>
 #include "mimepart.h"
 #include "mimefile.h"
+#include "exportmode.h"
 
-class MimeAttachment : public MimeFile
+class SMTPMIME_EXPORT MimeAttachment : public MimeFile
 {
     Q_OBJECT
 public:

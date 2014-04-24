@@ -23,9 +23,9 @@
 #include <QtNetwork/QSslSocket>
 
 #include "mimemessage.h"
+#include "exportmode.h"
 
-
-class SmtpClient : public QObject
+class SMTPMIME_EXPORT SmtpClient : public QObject
 {
     Q_OBJECT
 public:
@@ -154,9 +154,9 @@ protected:
 
     /* [5] Protected methods */
 
-    void waitForResponse() throw (ResponseTimeoutException);
+    void waitForResponse();
 
-    void sendMessage(const QString &text) throw (SendMessageTimeoutException);
+    void sendMessage(const QString &text);
 
     /* [5] --- */
 

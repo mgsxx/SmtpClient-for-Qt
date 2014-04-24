@@ -20,8 +20,9 @@
 #define MIMETEXT_H
 
 #include "mimepart.h"
+#include "exportmode.h"
 
-class MimeText : public MimePart
+class SMTPMIME_EXPORT MimeText : public MimePart
 {
 public:
 

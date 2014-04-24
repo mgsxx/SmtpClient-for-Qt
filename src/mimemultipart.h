@@ -20,8 +20,9 @@
 #define MIMEMULTIPART_H
 
 #include "mimepart.h"
+#include "exportmode.h"
 
-class MimeMultiPart : public MimePart
+class SMTPMIME_EXPORT MimeMultiPart : public MimePart
 {
     Q_OBJECT
 public:

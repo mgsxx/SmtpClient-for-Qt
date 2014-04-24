@@ -21,8 +21,9 @@
 
 #include <QObject>
 #include <QByteArray>
+#include "exportmode.h"
 
-class MimeContentFormatter : public QObject
+class SMTPMIME_EXPORT MimeContentFormatter : public QObject
 {
     Q_OBJECT
 public:

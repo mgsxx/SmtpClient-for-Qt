@@ -259,11 +259,11 @@ bool SmtpClient::connectToHost()
             }
         }
     }
-    catch (ResponseTimeoutException)
+    catch (const ResponseTimeoutException&)
     {
         return false;
     }
-    catch (SendMessageTimeoutException)
+    catch (const SendMessageTimeoutException&)
     {
         return false;
     }
@@ -325,13 +325,13 @@ bool SmtpClient::login(const QString &user, const QString &password, AuthMethod 
             }
         }
     }
-    catch (ResponseTimeoutException e)
+    catch (const ResponseTimeoutException&)
     {
         // Responce Timeout exceeded
         emit smtpError(AuthenticationFailedError);
         return false;
     }
-    catch (SendMessageTimeoutException)
+    catch (const SendMessageTimeoutException&)
     {
 	// Send Timeout exceeded
         emit smtpError(AuthenticationFailedError);
@@ -399,11 +399,11 @@ bool SmtpClient::sendMail(MimeMessage& email)
 
         if (responseCode != 250) return false;
     }
-    catch (ResponseTimeoutException)
+    catch (const ResponseTimeoutException&)
     {
         return false;
     }
-    catch (SendMessageTimeoutException)
+    catch (const SendMessageTimeoutException&)
     {
         return false;
     }
@@ -421,7 +421,7 @@ void SmtpClient::quit()
 
 /* [4] Protected methods */
 
-void SmtpClient::waitForResponse() throw (ResponseTimeoutException)
+void SmtpClient::waitForResponse()
 {
     do {
         if (!socket->waitForReadyRead(responseTimeout))
@@ -448,7 +448,7 @@ void SmtpClient::waitForResponse() throw (ResponseTimeoutException)
     } while (true);
 }
 
-void SmtpClient::sendMessage(const QString &text) throw (SendMessageTimeoutException)
+void SmtpClient::sendMessage(const QString &text)
 {
     socket->write(text.toUtf8() + "\r\n");
     if (! socket->waitForBytesWritten(sendMessageTimeout))
@@ -465,10 +465,12 @@ void SmtpClient::sendMessage(const QString &text) throw (SendMessageTimeoutExcep
 
 void SmtpClient::socketStateChanged(QAbstractSocket::SocketState state)
 {
+    Q_UNUSED(state);
 }
 
 void SmtpClient::socketError(QAbstractSocket::SocketError socketError)
 {
+    Q_UNUSED(socketError);
 }
 
 void SmtpClient::socketReadyRead()

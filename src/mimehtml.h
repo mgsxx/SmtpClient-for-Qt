@@ -20,8 +20,9 @@
 #define MIMEHTML_H
 
 #include "mimetext.h"
+#include "exportmode.h"
 
-class MimeHtml : public MimeText
+class SMTPMIME_EXPORT MimeHtml : public MimeText
 {
     Q_OBJECT
 public:

@@ -20,8 +20,9 @@
 #define EMAILADDRESS_H
 
 #include <QObject>
+#include "exportmode.h"
 
-class EmailAddress : public QObject
+class SMTPMIME_EXPORT EmailAddress : public QObject
 {
     Q_OBJECT
 public:
